@@ -9,7 +9,7 @@
 
 marked_note = File.expand_path("~/EvernoteSelection.md")
 File.open(marked_note, 'w') {} unless File.exist?(marked_note)
-`open /Applications/Marked.app --args #{marked_note}`
+`open -a Marked #{marked_note}`
 
 trap("SIGINT") { exit }
 
