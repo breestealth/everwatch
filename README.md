@@ -9,6 +9,13 @@ Updated to handle the way Evernote currently handles files (2013) and quick laun
 
 ##Usage
 
-Edit the account name in the script. It uses this to find your saved notes on your files system. Doubled check with the file path in the script to make sure your account name is the one the Evernote app is using.
+    bash> ./everwatch.rb <evernote username>
+
+or set account name to EVERWATCH_ACCOUNT environment variable,
+
+    bash> export EVERWATCH_ACCOUNT=<evernote username>
+    bash> ./everwatch.rb
+
+or if osx's user name equals evernote username, simply
 
     bash> ./everwatch.rb

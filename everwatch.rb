@@ -13,7 +13,7 @@ File.open(marked_note, 'w') {} unless File.exist?(marked_note)
 
 trap("SIGINT") { exit }
 
-account = "youraccount"
+account = ARGV[0] || ENV['EVERWATCH_ACCOUNT'] || ENV["USER"]
 watch_folder = File.expand_path("~/Library/Containers/com.evernote.Evernote/Data/Library/Application Support/Evernote/accounts/Evernote/#{account}/content")
 counter = 0
 
