@@ -7,14 +7,14 @@
 # Watch Evernote for updates and put the current content of the editor into a preview file for Marked.app
 # <http://markedapp.com>
 
-`open /Applications/Marked.app --args ~/EvernoteSelection.md`
+marked_note = File.expand_path("~/EvernoteSelection.md")
+File.open(marked_note, 'w') {} unless File.exist?(marked_note)
+`open /Applications/Marked.app --args #{marked_note}`
 
 trap("SIGINT") { exit }
 
-#watch_folder = File.expand_path("~/Library/Application Support/Evernote/data")
 account = "youraccount"
 watch_folder = File.expand_path("~/Library/Containers/com.evernote.Evernote/Data/Library/Application Support/Evernote/accounts/Evernote/#{account}/content")
-marked_note = File.expand_path("~/EvernoteSelection.md")
 counter = 0
 
 while true do # repeat infinitely
