@@ -23,7 +23,7 @@ while true do # repeat infinitely
   files = Dir.glob( File.join( watch_folder, "**/*") )
 
   # check for timestamp changes since the last loop
-  new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+  new_hash = files.collect {|f| [ f, File.exist?(f) ? File.stat(f).mtime.to_i : 0 ] }
   hash ||= new_hash
   diff_hash = new_hash - hash
 
