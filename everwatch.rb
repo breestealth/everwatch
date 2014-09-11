@@ -9,7 +9,7 @@
 
 marked_note = File.expand_path("~/EvernoteSelection.md")
 File.open(marked_note, 'w') {} unless File.exist?(marked_note)
-`open -a Marked #{marked_note}`
+`open -a 'Marked 2' #{marked_note}`
 
 trap("SIGINT") { exit }
 
@@ -50,9 +50,9 @@ while true do # repeat infinitely
 APPLESCRIPT}
 
     unless note == '' # if we got something back from the AppleScript
-      txtnote = %x{echo '#{note}'|textutil -stdin -convert txt -stdout}
+      txtnote = %x{echo '#{note.gsub("'",'__APOSTROPHE__')}'|textutil -stdin -convert txt -stdout}
       watch_note = File.new("#{marked_note}",'w')
-      watch_note.puts txtnote
+      watch_note.puts txtnote.gsub("\302\240", ' ').gsub('__APOSTROPHE__', "'")
       watch_note.close
     end
 
