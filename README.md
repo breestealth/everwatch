@@ -7,15 +7,15 @@ Modded from original script by [Brett Terpstra](http://brettterpstra.com/2011/11
 
 Updated to handle Marked2 and fixed small encoding problem.
 
+Updated for utf-8 encoding and no need to pass the Evernote/Yinxiang username.
+
 ##Usage
 
-    bash> ./everwatch.rb <evernote username>
+Just install Marked2.app and Evernote.app and then input 
 
-or set account name to EVERWATCH_ACCOUNT environment variable,
+```
+./everwatch.rb
+```
+in your teminal.
 
-    bash> export EVERWATCH_ACCOUNT=<evernote username>
-    bash> ./everwatch.rb
-
-or if osx's user name equals evernote username, simply
-
-    bash> ./everwatch.rb
+Then, done.
